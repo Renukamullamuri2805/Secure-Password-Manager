@@ -44,7 +44,7 @@ To install the required packages, you can use:
 ```bash
 pip install -r requirements.txt
 
-Installation
+## Installation
 1)Clone the repository:
 git clone https://github.com/yourusername/SecretVault.git
 cd SecretVault
@@ -63,7 +63,7 @@ flask run
 5)Access the app:
 Open your browser and go to http://127.0.0.1:5000.
 
-Usage:
+## Usage:
 Register: Create an account with a username, master password, and secret key.
 Login: Use your username and master password to log in.
 Add Passwords: Enter website information and password. SecretVault will encrypt and store this information.
@@ -82,7 +82,7 @@ The master password is the main password used to log into SecretVault. It is req
 Encryption Password:
 The encryption password is used specifically for encrypting and decrypting stored passwords using the AES algorithm. Users will need to enter this password whenever they want to view or edit a saved password. Note: Changing the encryption password will delete all stored passwords as a security measure.
 
-File Structure:
+## File Structure:
 Below is the file structure of the project:
 
 
