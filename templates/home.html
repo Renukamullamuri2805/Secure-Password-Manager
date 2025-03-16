@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='homebg.jpg') }}");  
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1>Secret Vault</h1>
+        <span class="username" style="font-size: 3vh;
+        color: white !important;
+        margin-right: 3vh;
+        font-weight: bold;;">Welcome, {{ username }}</span>
+    </div>
+
+        <!-- Custom divs replacing Bootstrap cards -->
+        <div class="row my-4">
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <img src="https://thumbs.dreamstime.com/b/woman-forgot-password-vector-linear-young-girl-security-system-smartphone-authorization-authentication-personal-data-316797592.jpg" class="custom-card-img" alt="Add Password">
+                    <div class="custom-card-body">
+                        <h5 class="custom-card-title">Add Password</h5>
+                        <p class="custom-card-text">Click below to add a new password to your vault.</p>
+                        <a href="{{ url_for('add_password') }}" class="btn btn-primary">Add Password</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <img src="https://img.freepik.com/premium-vector/chat-messages-purple-color-vector-illustration-cartoon_969863-317607.jpg?w=360" class="custom-card-img" alt="View Passwords">
+                    <div class="custom-card-body">
+                        <h5 class="custom-card-title">View Passwords</h5>
+                        <p class="custom-card-text">Click below to view and manage your saved passwords.</p>
+                        <a href="{{ url_for('view_password') }}" class="btn btn-primary">View Passwords</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="custom-card">
+                    <img src="https://www.shutterstock.com/image-vector/privacy-settings-icon-padlock-sign-260nw-1286071723.jpg" class="custom-card-img" alt="Settings">
+                    <div class="custom-card-body">
+                        <h5 class="custom-card-title">Settings</h5>
+                        <p class="custom-card-text">Click below to manage your account settings.</p>
+                        <a href="{{ url_for('settings') }}" class="btn btn-primary">Go to Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='glassmorphism.css') }}">
+    <!-- Link Font Awesome for the eye icon (if not already linked globally) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='bg.jpg') }}");  
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            
+            <div class="password-container">
+                <input type="password" id="master_password" name="master_password" placeholder="Master Password" required
+                       pattern="^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$"
+                       title="Password must be at least 8 characters long and include at least one special character.">
+                <span class="password-toggle" onclick="togglePasswordVisibility('master_password')">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/register" class="specific-link">Register here</a></p>
+
+      
+    </div>
+
+    <!-- Link the JavaScript file containing the togglePasswordVisibility function -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

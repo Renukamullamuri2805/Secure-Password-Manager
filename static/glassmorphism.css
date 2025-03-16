@@ -1,0 +1,99 @@
+@keyframes backgroundMovement {
+    0% { background-position: center top; }
+    50% { background-position: center center; }
+    100% { background-position: center bottom; }
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("{{ url_for('static', filename='bg.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: backgroundMovement 30s ease-in-out infinite;
+}
+
+.form-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.form-container h2 {
+    color: #fff;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-container input::placeholder {
+    color: rgba(255, 255, 255, 0.8); /* Brighter white for better visibility */
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #660066;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+}
+
+/* "Register here" and "Login here" links styling */
+.form-container a.specific-link {
+    color: #cc03cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-container a.specific-link:hover,
+.form-container a.specific-link:focus {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Generic styling for other text elements */
+.form-container p, .form-container span {
+    color: #f3f3f3;
+}

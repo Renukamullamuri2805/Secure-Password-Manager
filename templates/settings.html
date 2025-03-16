@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='pagebg.jpg') }}");  
+        }
+    </style>
+</head>
+<body>
+
+    <div class="head">
+        <h1>Settings</h1>
+        <a href="{{ url_for('home') }}" class="back-arrow"> Back to Home</a>
+    </div>
+
+        
+    <div class="container-settings">
+        
+        
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {% if message == "Master password updated successfully." %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% elif message == "Master password entered is wrong." %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% elif message == "You entered the previous master password." %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                {% elif message == "Encryption password updated successfully!" %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% elif message == "Wrong encryption password." %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" value="{{ user.username }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="current_password">Current Master Password:</label>
+                <div class="password-container">
+                    <input type="password" id="current_password" name="current_password" class="form-control" required>
+                    <span class="password-toggle" onclick="togglePasswordVisibility('current_password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="new_master_password">New Master Password:</label>
+                <div class="password-container">
+                    <input type="password" id="new_master_password" name="new_master_password" class="form-control" placeholder="Leave blank to keep current"
+                       pattern="^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$"
+                       title="Password must be at least 8 characters long and include at least one special character.">
+                    <span class="password-toggle" onclick="togglePasswordVisibility('new_master_password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="current_encryption_password">Current Encryption Password:</label>
+                <div class="password-container">
+                    <input type="password" name="current_encryption_password" id="current_encryption_password" class="form-control">
+                    <span class="password-toggle" onclick="togglePasswordVisibility('current_encryption_password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label for="encryption_password">New Encryption Password:</label>
+                <div class="password-container">
+                    <input type="password" name="encryption_password" id="encryption_password" class="form-control">
+                    <span class="password-toggle" onclick="togglePasswordVisibility('encryption_password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+                <p>Caution: All existing data will be cleared if the encryption password is updated.</p>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+            
+
+        </form>
+        <div class="button-container">
+           <form action="{{ url_for('logout') }}" method="POST">
+              <button type="submit" class="btn btn-danger">Logout</button>
+           </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</body>
+</html>

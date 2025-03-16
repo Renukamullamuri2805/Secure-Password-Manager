@@ -1,0 +1,635 @@
+
+
+/* Global body styling with animated background */
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 50px; /* Added gap at top */
+    padding-bottom: 10vh; /* Added gap at bottom */
+    -ms-overflow-style: none;  /* For IE and Edge */
+    scrollbar-width: none; 
+}
+
+/* Glassmorphism form container */
+.form-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 8vh;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f3f3f3;
+    text-align: center;
+    
+}
+
+/* Heading styling */
+.form-container h2 {
+    color: #fff;
+    font-weight: bold;
+    
+}
+
+/* Input fields styling */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Placeholder styling for input fields */
+.form-container input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Button styling */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #660066;
+}
+
+
+
+
+
+/* Success message styling */
+.alert.alert-success {
+    background-color: rgba(76, 175, 80, 0.2); /* Light green for success */
+    color: #4CAF50;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Container styling */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f3f3f3;
+    text-align: center;
+    margin-top: 15vh;
+    display: block; 
+}
+
+header {
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.back-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Header and title */
+header h1 {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    margin: 0;
+}
+
+
+
+header .back-link:hover {
+    color: #fff;
+}
+
+/* Password list styling */
+.password-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    max-height: 70vh; /* Adjust based on how much content you want to show at once */
+    overflow-y: auto; /* Makes the list scrollable */
+    padding: 5vh;
+}
+
+.password-list::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in webkit browsers */
+}
+
+.password-row {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3vh;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center; /* Aligns items in the center vertically */
+    justify-content: flex-start; /* Aligns items to the left */
+    gap: 10px;
+    
+    flex-wrap: wrap; /* Allow content to wrap */
+}
+
+.website-name,
+.encrypted-password {
+    color: #f3f3f3;
+    font-weight: bold;
+    flex-basis: 30%; /* Limit each item to 40% of the row width */
+    min-width: 150px; /* Ensures both website name and password have at least 150px width */
+    word-wrap: break-word; /* Allow content to wrap to the next line */
+    white-space: normal; /* Allow long text to break onto a new line */
+}
+
+.encrypted-password {
+    color: #ccc;
+    font-style: italic;
+}
+
+/* Action buttons container */
+.action-buttons {
+    display: flex;
+    gap: 4vh;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+/* Action buttons styling */
+.action-buttons button {
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 5px;
+}
+
+.action-buttons button:hover {
+    background-color: #660066;
+}
+
+.view-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* View all, hide all, delete all buttons */
+.view-buttons button {
+    background-color: #4c4c9d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 5px;
+}
+
+.view-buttons button:hover {
+    background-color: #3b3b7d;
+}
+
+
+
+/* Basic Modal Styles */
+.modal {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    z-index: 1; /* Sit on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.4) ; /* Black with transparency */
+    overflow: auto; /* Enable scrolling if needed */
+    
+    /* Centering the modal vertically and horizontally */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #ffffffcc !important;
+    padding: 6vh;
+    border: 1px solid #888;
+    width: 50%; /* Set a specific width, adjust as needed */
+    max-width: 600px; /* Limit maximum width */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative; /* Position relative for the close button */
+}
+
+.modal-content h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#edit-modal input,
+#view-password-modal input,
+#view-all-modal input,
+#delete-all-modal input {
+    color: black;
+}
+
+.modal-content input {
+    background-color: transparent; /* Ensure the background remains transparent */
+    border: 1px solid #ccc; /* Add a light border to the input */
+    padding: 10px;
+    font-size: 16px;
+    width: 100%; /* Ensure the input takes full width */
+    border-radius: 8px; 
+}
+
+/* If the password field has the eye icon toggle, make sure the icon is properly styled */
+.modal-content .password-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Style the eye icon toggle */
+.modal-content .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    
+}
+
+/* Make sure the eye icon stays visible */
+.modal-content .password-toggle i {
+    color: solid black; /* Color of the eye icon */
+    font-size: 18px;
+}
+
+
+/* Close button for modals */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #241d1d;
+    cursor: pointer;
+}
+
+
+/* Password input field with eye icon */
+.password-container {
+    position: relative;
+    margin: 2vh;
+}
+
+.password-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.password-container .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000;
+}
+
+/* Button in modal */
+.modal-content button {
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 2vh;
+    transition: background-color 0.3s;
+    width: 50vh; /* Adjust width to content */
+    margin-left: 15vh;
+    
+}
+
+.modal-content button:hover {
+    background-color: #660066;
+}
+
+.modal-content #edit-password {
+    border: 2px solid #00000079;  /* Black border for the password field */
+}
+
+.modal-content #encryption-password {
+    border: 2px solid #00000079;  /* Black border for the password field */
+}
+
+.modal-content #encryption-password-all {
+    border: 2px solid #00000079;  /* Black border for the password field */
+}
+
+.modal-content #delete-all-password {
+    border: 2px solid #00000079;  /* Black border for the password field */
+}
+/* Alert styling for confirmation and errors */
+.alert {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+}
+
+.alert-danger {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+}
+
+.head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background for head */
+    z-index: 10;
+    transition: top 0.3s;
+    
+}
+
+.head h1 {
+    font-size: 5vh;
+    color: #fff;
+    margin-left: 3.5vh;
+}
+
+
+.head .username {
+    font-size: 100px;
+    color: white !important;
+    margin-right: 2vh;
+    font-weight: bold;
+}
+
+
+.head .back-arrow {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 4vh;
+    transition: text-decoration 0.3s ease;
+}
+
+.back-arrow:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.container-settings {
+    position: absolute;
+    top: 17vh; /* Space from the top of the page */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism - transparent white background */
+    backdrop-filter: blur(10px); /* Blurred background */
+    padding: 5vh;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 100vh;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+/* Input and form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #fff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Caution message */
+form .form-group p {
+    font-size: 14px;
+    color: #f5a623;
+    margin-top: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 20px; /* Space between the buttons */
+    margin-top: 20px; /* Space above the button container */
+}
+
+/* Save Changes button */
+button[type="submit"].btn-primary {
+    background-color: #800080; /* Purple color */
+    border-color: #800080;
+    color: white;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+button[type="submit"].btn-primary:hover {
+    background-color: #6a006a; /* Darker purple on hover */
+}
+
+/* Logout button */
+button[type="submit"].btn-danger {
+    background-color: #e74c3c; /* Red color */
+    border-color: #e74c3c;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+button[type="submit"].btn-danger:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Add this to your CSS file (styles.css) */
+.no-passwords-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make sure it takes full viewport height */
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+
+.container.no-passwords {
+    display: none; /* Hide the container when no passwords exist */
+}
+
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+    .container-settings {
+        padding: 15px;
+        width: 90%;
+        top: 80px; /* Adjust for mobile screens */
+    }
+
+    .head h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    input[type="text"], input[type="password"], button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .password-row {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .website-name,
+    .encrypted-password {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .action-buttons {
+        width: 100%;
+        text-align: center;
+    }
+
+    .view-buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .password-container input {
+        width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .password-list {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .action-buttons button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .view-buttons button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 10px;
+    }
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar in webkit-based browsers */
+}
+
+body {
+    -ms-overflow-style: none;  /* For IE and Edge */
+    scrollbar-width: none;     /* For Firefox */
+}
+
+
